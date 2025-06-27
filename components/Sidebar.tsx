@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { MenuIcon } from "lucide-react";
 import NewDocumentButton from "./NewDocumentButton";
@@ -12,7 +12,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useUser } from "@clerk/nextjs";
-import { collectionGroup, DocumentData, query, where } from "firebase/firestore";
+import {
+  collectionGroup,
+  DocumentData,
+  query,
+  where,
+} from "firebase/firestore";
 import { db } from "@/firebase";
 import { useEffect } from "react";
 
@@ -36,6 +41,37 @@ function Sidebar() {
         where("userId", "==", user.emailAddresses[0].toString())
       )
   );
+
+  useEffect(() => {
+    const grouped = data?.docs.reduce<{
+      owner: RoomDocument[];
+      editor: RoomDocument[];
+    }>(
+      (acc, curr) => {
+        const roomData = curr.data() as RoomDocument;
+
+        if (roomData.role === "owner") {
+          // push new object into correct array within initial value of .reduce()
+          acc.owner.push({
+            id: curr.id,
+            ...roomData,
+          });
+        } else {
+          acc.editor.push({
+            id: curr.id,
+            ...roomData,
+          });
+        }
+
+        return acc;
+      },
+      // initial value of .reduce()
+      {
+        owner: [],
+        editor: [],
+      }
+    );
+  }, [data]);
 
   const menuOptions = (
     <>
