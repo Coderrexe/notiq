@@ -19,7 +19,7 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "@/firebase";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface RoomDocument extends DocumentData {
   createdAt: Date;
@@ -30,6 +30,10 @@ interface RoomDocument extends DocumentData {
 
 function Sidebar() {
   const { user } = useUser();
+  const [groupedData, setGroupedData] = useState<{
+    owner: RoomDocument[];
+    editor: RoomDocument[];
+  }>({ owner: [], editor: [] });
 
   const [data, loading, error] = useCollection(
     user &&
@@ -43,7 +47,9 @@ function Sidebar() {
   );
 
   useEffect(() => {
-    const grouped = data?.docs.reduce<{
+    if (!data) return;
+    
+    const grouped = data.docs.reduce<{
       owner: RoomDocument[];
       editor: RoomDocument[];
     }>(
@@ -71,6 +77,8 @@ function Sidebar() {
         editor: [],
       }
     );
+
+    setGroupedData(grouped);
   }, [data]);
 
   const menuOptions = (
