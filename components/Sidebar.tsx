@@ -48,7 +48,7 @@ function Sidebar() {
 
   useEffect(() => {
     if (!data) return;
-    
+
     const grouped = data.docs.reduce<{
       owner: RoomDocument[];
       editor: RoomDocument[];
@@ -86,7 +86,19 @@ function Sidebar() {
       <NewDocumentButton />
 
       {/* My documents */}
-      {/* List... */}
+      {groupedData.owner.length === 0 ? (
+        <h2 className="text-gray-500 font-semibold text-sm">
+          No documents found.
+        </h2>
+      ) : (
+        <>
+          <h2 className="text-gray-500 font-semibold text-sm">My Documents</h2>
+          {groupedData.owner.map((doc) => (
+            <p key={doc.id}>{doc.id}</p>
+            // <SidebarOption key={doc.id} id={doc.id} href={`/doc/${doc.id}`}></SidebarOption>
+          ))}
+        </>
+      )}
 
       {/* Shared with me */}
       {/* List... */}
