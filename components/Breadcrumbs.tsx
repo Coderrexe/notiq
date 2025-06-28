@@ -34,7 +34,7 @@ function Breadcrumbs() {
             <Fragment key={segment}>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                {isLastSegment ? (
+                {isLastSegment || href.includes("doc") ? (
                   <BreadcrumbPage>{segment}</BreadcrumbPage>
                 ) : (
                   <BreadcrumbLink href={href}>{segment}</BreadcrumbLink>
