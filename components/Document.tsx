@@ -4,7 +4,12 @@ function Document({ id }: { id: string }) {
   return (
     <div>
       <div>
-        <form action=""></form>
+        {/* update title... */}
+
+        {/* IF. */}
+        {/* isOwner && InviteUser, delete document */}
+
+        <form></form>
       </div>
       <div>
         {/* ManageUsers */}
