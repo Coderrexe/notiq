@@ -9,7 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@blocknote/core": "^0.32.0",
+    "@blocknote/mantine": "^0.32.0",
+    "@blocknote/react": "^0.32.0",
     "@clerk/nextjs": "^6.22.0",
+    "@liveblocks/client": "^3.0.0",
+    "@liveblocks/react": "^3.0.0",
+    "@liveblocks/react-blocknote": "^3.0.0",
+    "@liveblocks/react-ui": "^3.0.0",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",
