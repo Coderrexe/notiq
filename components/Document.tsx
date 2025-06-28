@@ -32,18 +32,18 @@ function Document({ id }: { id: string }) {
 
   return (
     <div>
-      <div>
-        {/* update title... */}
-        <Input value={input} onChange={(e) => setInput(e.target.value)} />
+      <div className=" flex max-w-5xl mx-auto justify-between pb-5">
+        <form className="flex flex-1 space-x-2" onSubmit={updateTitle}>
+          {/* update title... */}
+          <Input value={input} onChange={(e) => setInput(e.target.value)} />
 
-        <Button onClick={updateTitle} disabled={isPending} type="submit">
-          {isPending ? "Updating..." : "Update"}
-        </Button>
+          <Button disabled={isPending} type="submit">
+            {isPending ? "Updating..." : "Update"}
+          </Button>
 
-        {/* IF. */}
-        {/* isOwner && InviteUser, delete document */}
-
-        <form></form>
+          {/* IF. */}
+          {/* isOwner && InviteUser, delete document */}
+        </form>
       </div>
       <div>
         {/* ManageUsers */}
