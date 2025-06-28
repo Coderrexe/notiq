@@ -6,6 +6,8 @@ import { useTransition } from "react";
 import { createNewDocument } from "@/actions/actions";
 
 function NewDocumentButton() {
+  // useTransition manages loading state of the button
+  // when user clicks button, isPending becomes true and startTransition runs
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
