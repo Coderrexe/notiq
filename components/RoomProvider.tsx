@@ -16,7 +16,7 @@ function RoomProvider({
   return (
     <LiveblocksRoomProvider id={roomId} initialPresence={{ cursor: null }}>
       <ClientSideSuspense fallback={<LoadingSpinner />}>
-        {children}
+        <LiveCursorProvider>{children}</LiveCursorProvider>
       </ClientSideSuspense>
     </LiveblocksRoomProvider>
   );
