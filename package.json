@@ -23,6 +23,7 @@
     "clsx": "^2.1.1",
     "firebase": "^11.9.1",
     "firebase-admin": "^13.4.0",
+    "framer-motion": "^12.19.2",
     "lucide-react": "^0.519.0",
     "next": "15.3.4",
     "react": "^19.0.0",

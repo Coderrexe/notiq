@@ -1,6 +1,7 @@
 "use client";
 
 import { useMyPresence, useOthers } from "@liveblocks/react/suspense";
+import FollowPointer from "./FollowPointer";
 
 function LiveCursorProvider({ children }: { children: React.ReactNode }) {
   // pull in Presence from liveblocks.config.ts (cursor position)
@@ -29,7 +30,7 @@ function LiveCursorProvider({ children }: { children: React.ReactNode }) {
             y={presence.cursor!.y}
           />
         ))}
-        
+
       {children}
     </div>
   );
