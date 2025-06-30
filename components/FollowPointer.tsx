@@ -11,7 +11,7 @@ function FollowPointer({
   info: {
     name: string;
     email: string;
-    avatarUrl: string;
+    avatar: string;
   };
 }) {
   const color = stringToColor(info.email || "0");
