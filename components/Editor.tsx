@@ -20,12 +20,13 @@ type EditorProps = {
 };
 
 function BlockNote({ doc, provider, darkMode }: EditorProps) {
+  // get current user's presence or identity in a collaborative session
   const userInfo = useSelf((me) => me.info);
 
   const editor: BlockNoteEditor = useCreateBlockNote({
     collaboration: {
       provider,
-      fragment: doc.getXmlFragment("document-store"),
+      fragment: doc.getXmlFragment("document-store"), // where the document is stored
       user: {
         name: userInfo?.name,
         color: stringToColor(userInfo?.email),
