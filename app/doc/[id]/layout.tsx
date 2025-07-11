@@ -3,7 +3,7 @@ import { auth } from "@clerk/nextjs/server";
 
 async function DocLayout({
   children,
-  params,
+  params, // id params is taken from URL itself (/doc/[id])
 }: {
   children: React.ReactNode;
   params: Promise<{ id: string }>;

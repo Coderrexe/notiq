@@ -8,6 +8,7 @@ function LiveBlocksProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
+    // throttle={16} ensures 60 FPS render
     <LiveblocksProvider throttle={16} authEndpoint={"/auth-endpoint"}>
       {children}
     </LiveblocksProvider>

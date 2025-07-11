@@ -6,6 +6,7 @@ import { Input } from "./ui/input";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
+import Editor from "./Editor";
 
 function Document({ id }: { id: string }) {
   const [data, isLoading, error] = useDocumentData(doc(db, "documents", id));
@@ -52,6 +53,7 @@ function Document({ id }: { id: string }) {
       </div>
 
       {/* Collaborative editor */}
+      <Editor />
     </div>
   );
 }
